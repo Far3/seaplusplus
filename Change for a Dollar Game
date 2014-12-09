@@ -1,0 +1,84 @@
+/* Franklyn Roth
+	CSC 116-603
+	2/20/14
+	Change for a Dollar Game:  Design a change-counting game that gets the user to enter the number of coins required to make exactly one dollar. The program should ask the user to enter the number of pennies, nickels, dimes, and quarters. If the total value of the coins entered is equal to one dollar, the program should congratulate the user for winning the game. Otherwise, the program should display a message indicating whether the amount entered was more than or less than one dollar.
+
+	
+	*/
+	#include<iostream>
+	using namespace std;
+	
+	int main(void)
+	{
+		//Declarations of constants
+		const double PENNYAMOUNT=.01;
+		const double NICKELAMOUNT=.05;
+		const double DIMEAMOUNT=0.10;
+		const double QUARTERAMOUNT=0.25;
+		
+		//Declarations of guesses the user will submit
+		double pennyGuess;
+		double nickelGuess;
+		double dimeGuess;
+		double quarterGuess;
+		
+		//declarations of total amounts the guesses will add up to
+		double pennyAddedAmount;
+		double nickelAddedAmount;
+		double dimeAddedAmount;
+		double quarterAddedAmount;
+		double totalAddedAmount;
+
+		//Output of information to the user, requesting coin guesses
+		cout<<"Welcome to Franklyns change counting game, please enter the number of coins you think will make exactly one dollar!"<<endl;//Give instructions to user
+		
+		cout<<"Pennys?"<<endl;//how many pennys
+		cin>>pennyGuess;		//saves the amount of pennys guessed
+		cout<<"Nickels?"<<endl;//how many nickels
+		cin>>nickelGuess;		//saves amount of niuckels guessed
+		cout<<"Dimes?"<<endl;	//how many dimes?
+		cin>>dimeGuess;	//saves amount of dimes guessed
+		cout<<"Quarters?"<<endl;//how many quarters?
+		cin>>quarterGuess;//saves the amount of quarters guessed
+		cout<<"_-_-_-_-_-_-_-_-_-_-_-_-"<<endl;
+		
+		//Calculation from guess to actual amount added up indiviually for each coin
+		pennyAddedAmount=pennyGuess*PENNYAMOUNT;
+		nickelAddedAmount=nickelGuess*NICKELAMOUNT;
+		dimeAddedAmount=dimeGuess*DIMEAMOUNT;
+		quarterAddedAmount=quarterGuess*QUARTERAMOUNT;
+		
+		
+		//total value of the users guest calculation al coins accounted for.
+		totalAddedAmount=(quarterAddedAmount+dimeAddedAmount+nickelAddedAmount+pennyAddedAmount);
+			
+		//Output the results from the individual coin resuslts.
+		cout<<"Total Pennies are: $"<<pennyAddedAmount<<endl;
+		cout<<"Total Nickels are: $"<<nickelAddedAmount<<endl;
+		cout<<"Total Dimes are: $"<<dimeAddedAmount<<endl;
+		cout<<"Total Quarters are: $"<<quarterAddedAmount<<endl;
+		cout<<"_-_-_-_-_-_-_-_-_-_-_-_-"<<endl;
+		
+		//Output the total
+		cout<<"The total was: $"<<totalAddedAmount<<endl;
+		cout<<"_-_-_-_-_-_-_-_-_-_-_-_-"<<endl;//fluff
+		
+		
+		//Conditional statement to see if they have won or not, and give advice based on the results.
+		if(totalAddedAmount>1.00)
+				cout<<"Your guess was too high, please try again!"<<endl;
+		
+		else if(totalAddedAmount<1.00)
+				cout<<"Your guess was too low, please try again!"<<endl;
+		
+		else
+			cout<<"Congratulations! :) You have won!"<<endl;
+		
+	
+		//Boilerplate
+		system("pause");
+		return 0;
+	
+	
+	
+	}
